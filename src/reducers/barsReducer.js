@@ -1,4 +1,4 @@
-import { FETCH_BARS } from '../actions/barsAction';
+import { FETCH_BARS, ADD_BAR } from '../actions/barsAction';
 
 const initialState = {
   bars: []
@@ -8,6 +8,9 @@ export default function reducer(state = initialState, action) {
   switch(action.type) {
     case FETCH_BARS:
       return { ...state, bars: action.payload };
+
+    case ADD_BAR:
+      return { ...state, bars:[...state.bars, action.payload] };
 
     default:
       return state;
